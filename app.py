@@ -32,11 +32,7 @@ PROJECTS = [
 ]
 @app.route("/")
 def hello():
-    return render_template('index.html')
-
-@app.route("/projects")
-def projects():
-    return render_template('projects.html',jobs=PROJECTS)
+    return render_template('index.html',jobs=PROJECTS)
 
 if __name__ == '__main__':
     app.run(debug=True)

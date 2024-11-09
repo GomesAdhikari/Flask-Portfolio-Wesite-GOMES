@@ -7,14 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        /* Previous styles remain the same until .project-section */
         body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            /* Darker gradient colors */
             background: linear-gradient(135deg, #0a1520, #4a1b6a, #1a4b7a);
             background-size: 300% 300%;
-            /* Faster animation */
             animation: gradientAnimation 10s ease infinite;
             font-family: 'Segoe UI', Arial, sans-serif;
             color: #ecf0f1;
@@ -36,59 +35,46 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
-            /* Increased opacity for more visibility */
             opacity: 0.6;
         }
 
         .node {
             position: absolute;
-            /* Increased size */
             width: 8px;
             height: 8px;
-            /* Brighter color */
             background-color: #4e316c;
             border-radius: 50%;
-            /* More pronounced animation */
             animation: nodeFloat 3s infinite;
-            /* Added glow effect */
             box-shadow: 0 0 10px #b266ff;
         }
 
         .line {
             position: absolute;
             height: 2px;
-            /* Brighter color */
             background-color: #bdd6fa;
-            /* Increased base opacity */
             opacity: 0.5;
             transform-origin: left center;
-            /* Faster animation */
             animation: lineConnect 3s infinite;
-            /* Added glow effect */
             box-shadow: 0 0 5px #a3c8ff;
         }
 
         @keyframes nodeFloat {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            /* Increased movement and scale */
             50% { transform: translate(10px, -10px) scale(2); }
         }
 
         @keyframes lineConnect {
             0%, 100% { opacity: 0.2; width: 0; }
-            /* Increased opacity at peak */
             50% { opacity: 0.7; width: 200px; }
         }
 
         .glass-container {
-            /* Darker background with more opacity */
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 2rem;
             margin: 2rem auto;
-            /* More pronounced shadow */
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
@@ -101,11 +87,9 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            /* Brighter border */
             border: 3px solid #80b3ff;
             padding: 3px;
             margin-bottom: 1rem;
-            /* Added animation */
             animation: profilePulse 3s infinite;
         }
 
@@ -121,14 +105,12 @@
             margin: 0.25rem;
             display: inline-block;
             transition: all 0.3s ease;
-            /* Added subtle glow */
             box-shadow: 0 0 10px rgba(128, 179, 255, 0.2);
         }
 
         .skill-badge:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-5px) scale(1.1);
-            /* Enhanced glow on hover */
             box-shadow: 0 0 15px rgba(128, 179, 255, 0.4);
         }
 
@@ -136,7 +118,6 @@
             text-align: center;
             padding: 1.5rem;
             border-radius: 15px;
-            /* Darker background */
             background: rgba(0, 0, 0, 0.3);
             margin: 1rem 0;
             transition: all 0.3s ease;
@@ -144,24 +125,7 @@
 
         .stats-card:hover {
             transform: translateY(-5px);
-            /* Enhanced glow on hover */
             box-shadow: 0 0 20px rgba(128, 179, 255, 0.3);
-        }
-
-        .btn-custom {
-            /* Darker gradient */
-            background: linear-gradient(135deg, #4d88ff, #9933ff);
-            border: none;
-            border-radius: 25px;
-            padding: 0.8rem 2rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-custom:hover {
-            transform: translateY(-5px);
-            /* Enhanced glow */
-            box-shadow: 0 5px 20px rgba(128, 179, 255, 0.4);
         }
 
         .section-title {
@@ -178,7 +142,6 @@
             left: 0;
             width: 50%;
             height: 3px;
-            /* Brighter gradient */
             background: linear-gradient(90deg, #80b3ff, transparent);
         }
 
@@ -196,8 +159,82 @@
         .social-links a:hover {
             color: #80b3ff;
             transform: translateY(-5px);
-            /* Added glow effect */
             text-shadow: 0 0 10px rgba(128, 179, 255, 0.8);
+        }
+
+        /* Project Section Styles */
+        .project-section {
+            margin-top: 4rem;
+        }
+
+        .project-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .project-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(128, 179, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .project-item h4 {
+            color: #80b3ff;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .project-item h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #80b3ff, #b266ff);
+            transition: width 0.4s ease;
+        }
+
+        .project-item:hover h4::after {
+            width: 100%;
+        }
+
+        .project-link {
+            color: #b266ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .project-link:hover {
+            color: #ffffff;
+            background: rgba(178, 102, 255, 0.2);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -207,6 +244,7 @@
     </div>
 
     <div class="container py-5">
+        <!-- Profile Section -->
         <div class="glass-container">
             <div class="profile-section">
                 <img src="/static/images/1726588361082.jpg" alt="Gomes Singh Adhikari" class="profile-image">
@@ -217,7 +255,6 @@
                     <a href="https://github.com/GomesAdhikari" title="GitHub"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/gomesadhikari/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="https://x.com/GomesAdhikari" title="Twitter"><i class="fab fa-twitter"></i></a>
-            
                 </div>
             </div>
 
@@ -226,10 +263,9 @@
                     <h3 class="section-title">About Me</h3>
                     <p class="lead">
                         I am Gomes Singh Adhikari, a driven Data Scientist and Machine Learning Engineer passionate about crafting data-driven solutions to tackle real-world challenges. With expertise in Python, Scikit-learn, TensorFlow, Keras, and Flask, I build predictive models, deploy machine learning systems, and create scalable applications. My experience with AWS ensures cloud deployment for high availability and scalability. Proficient in data analysis and visualization with Pandas and Seaborn, I deliver clear, impactful insights.
-
+                    </p>
+                    <p class="lead">
                         I bring strong communication and leadership skills, excelling in cross-functional teams and project management. With a problem-solving mindset and continuous learning approach, I aim to contribute to meaningful, innovative projects that create real impact.
-
-
                     </p>
                 </div>
                 <div class="col-md-6">
@@ -263,12 +299,18 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="text-center mt-5">
-                <a href="projects" class="btn btn-custom">
-                    View My Projects <i class="fas fa-arrow-right ms-2"></i>
-                </a>
+        <!-- Projects Section -->
+        <div class="glass-container project-section">
+            <h3 class="section-title text-center mb-5">My Projects</h3>
+            {% for job in jobs %}
+            <div class="project-item">
+                <h4>{{ job['title'] }}</h4>
+                <div class="mb-3"><b>About Project:</b> {{ job['About'] }}</div>
+                <div><b>Link to Project:</b> <a href="{{ job['Link'] }}" class="project-link" target="_blank">{{ job['Link'] }}</a></div>
             </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -276,29 +318,24 @@
         // Create animated neural network background
         function createNeuralNetwork() {
             const network = document.querySelector('.neural-network');
-            // Increased number of nodes and lines for more visible effect
             const nodeCount = 20;
             const lineCount = 25;
             
-            // Create nodes
             for (let i = 0; i < nodeCount; i++) {
                 const node = document.createElement('div');
                 node.className = 'node';
                 node.style.left = `${Math.random() * 100}%`;
                 node.style.top = `${Math.random() * 100}%`;
-                // Added random animation delay for more organic movement
                 node.style.animationDelay = `${Math.random() * 2}s`;
                 network.appendChild(node);
             }
             
-            // Create lines
             for (let i = 0; i < lineCount; i++) {
                 const line = document.createElement('div');
                 line.className = 'line';
                 line.style.left = `${Math.random() * 100}%`;
                 line.style.top = `${Math.random() * 100}%`;
                 line.style.transform = `rotate(${Math.random() * 360}deg)`;
-                // Added random animation delay
                 line.style.animationDelay = `${Math.random() * 2}s`;
                 network.appendChild(line);
             }
