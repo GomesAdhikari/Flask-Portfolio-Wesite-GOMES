@@ -22,6 +22,11 @@ PROJECTS = [
         "title":'Skin Cancer Detection',
         "About":"The skin cancer detection project aims to classify skin lesions as either malignant or benign based on images of the skin. Using deep learning techniques, particularly convolutional neural networks (CNNs), the model is trained on a large dataset of labeled images of skin lesions. The primary goal is to assist healthcare professionals by providing an automated system for detecting cancerous growths early, leading to timely intervention. The project involves preprocessing the images, applying data augmentation to increase model robustness, and using classification algorithms to distinguish between malignant (cancerous) and benign (non-cancerous) lesions. Accuracy, sensitivity, and specificity are key metrics used to evaluate the model’s performance in real-world settings.",
         "Link":'https://skin-cancer-detection-flask-app-with-gjkn.onrender.com/'
+    },
+    {
+        "title":'END to End Student class grade prediction system',
+        "About":"This is just a Simple regression project but what makes it different from other simple regression tasks is its modularity in terms of data ingestion, training pipeline ,prediction pipeline handling exception etc. just for creating a machine learning model project architecture.",
+        "Link":'https://github.com/GomesAdhikari/EndEnd-ML-project-Sample/tree/main'
     }
 
 ]
