@@ -39,8 +39,8 @@
 
         .node {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background-color: #4e316c;
             border-radius: 50%;
             animation: nodeFloat 3s infinite;
@@ -49,9 +49,9 @@
 
         .line {
             position: absolute;
-            height: 2px;
+            height: 1px;
             background-color: #bdd6fa;
-            opacity: 0.5;
+            opacity: 0.3;
             transform-origin: left center;
             animation: lineConnect 3s infinite;
             box-shadow: 0 0 10px #a3c8ff;
@@ -59,266 +59,185 @@
 
         @keyframes nodeFloat {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(10px, -10px) scale(1.5); }
+            50% { transform: translate(5px, -5px) scale(1.2); }
         }
 
         @keyframes lineConnect {
-            0%, 100% { opacity: 0.2; width: 0; }
-            50% { opacity: 0.7; width: 200px; }
+            0%, 100% { opacity: 0.1; width: 0; }
+            50% { opacity: 0.4; width: 100px; }
         }
 
         .glass-container {
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
+            border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            margin: 2rem auto;
+            padding: 1.5rem;
+            margin: 1rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
             position: relative;
             z-index: 1;
         }
 
-        .glass-container:hover {
-            transform: translateY(-5px);
+        @media (max-width: 768px) {
+            .glass-container {
+                padding: 1rem;
+                margin: 0.5rem;
+            }
         }
 
         .profile-section {
             text-align: center;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             position: relative;
         }
 
         .profile-image {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             border: 3px solid #80b3ff;
             padding: 3px;
             margin-bottom: 1rem;
             animation: profilePulse 3s infinite;
-            transition: transform 0.3s ease;
         }
 
-        @keyframes profilePulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(128, 179, 255, 0.5); }
-            50% { box-shadow: 0 0 30px rgba(128, 179, 255, 0.8); }
-        }
-
-        .profile-image:hover {
-            transform: scale(1.1);
+        @media (max-width: 768px) {
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         .typing-container {
             display: inline-block;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .typing-text {
             border-right: 2px solid #80b3ff;
             white-space: nowrap;
             overflow: hidden;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
         }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #80b3ff }
+        @media (max-width: 768px) {
+            .typing-text {
+                font-size: 1.4rem;
+            }
         }
 
         .skill-badge {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            padding: 0.4rem 0.8rem;
             margin: 0.25rem;
             display: inline-block;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(128, 179, 255, 0.2);
-            cursor: pointer;
+            font-size: 0.9rem;
         }
 
-        .skill-badge:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 0 20px rgba(128, 179, 255, 0.6);
+        @media (max-width: 768px) {
+            .skill-badge {
+                padding: 0.3rem 0.6rem;
+                margin: 0.2rem;
+                font-size: 0.8rem;
+            }
         }
 
         .section-title {
-            font-weight: 700;
-            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50%;
-            height: 3px;
-            background: linear-gradient(90deg, #80b3ff, transparent);
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .lead {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
         }
 
         .stats-card {
             text-align: center;
-            padding: 1.5rem;
-            border-radius: 15px;
+            padding: 1.2rem;
+            border-radius: 12px;
             background: rgba(0, 0, 0, 0.3);
-            margin: 1rem 0;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            margin: 0.8rem 0;
         }
 
-        .stats-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
+        @media (max-width: 768px) {
+            .stats-card {
+                padding: 1rem;
+                margin: 0.5rem 0;
+            }
 
-        @keyframes shine {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
-        }
-
-        .stats-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(128, 179, 255, 0.3);
+            .stats-card h4 {
+                font-size: 1.2rem;
+            }
         }
 
         .social-links {
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
 
         .social-links a {
             color: #ecf0f1;
-            margin: 0 1rem;
-            font-size: 1.5rem;
+            margin: 0 0.8rem;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
-            position: relative;
         }
 
-        .social-links a::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(90deg, #80b3ff, transparent);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .social-links a:hover::before {
-            transform: scaleX(1);
-        }
-
-        .social-links a:hover {
-            color: #80b3ff;
-            transform: translateY(-5px);
+        @media (max-width: 768px) {
+            .social-links a {
+                margin: 0 0.5rem;
+                font-size: 1.1rem;
+            }
         }
 
         .project-item {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            transform: translateY(0);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
         }
 
-        .project-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-
-        .project-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(128, 179, 255, 0.3);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .project-item:hover::after {
-            transform: translateX(100%);
-        }
-
-        .project-item h4 {
-            color: #80b3ff;
-            margin-bottom: 20px;
-            font-weight: 600;
-            font-size: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .project-item h4::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #80b3ff, #b266ff);
-            transition: width 0.4s ease;
-        }
-
-        .project-item:hover h4::after {
-            width: 100%;
-        }
-
-        .project-link {
-            color: #b266ff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-
-        .project-link:hover {
-            color: #ffffff;
-            background: rgba(178, 102, 255, 0.2);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        @media (max-width: 768px) {
+            .project-item {
+                padding: 1rem;
+                margin-bottom: 1rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .project-item h4 {
+                font-size: 1.2rem;
+                margin-bottom: 0.8rem;
+            }
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .row {
+                margin-left: -0.5rem;
+                margin-right: -0.5rem;
+            }
+
+            .col-md-6 {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
             }
         }
     </style>
@@ -326,14 +245,14 @@
 <body>
     <div class="neural-network"></div>
 
-    <div class="container py-5">
+    <div class="container py-3">
         <div class="glass-container">
             <div class="profile-section">
                 <img src="/static/images/1726588361082.jpg" alt="Gomes Singh Adhikari" class="profile-image">
                 <div class="typing-container">
                     <div class="typing-text">Gomes Singh Adhikari</div>
                 </div>
-                <h2 class="h4 text-info mb-4">AI Engineer & Data Scientist</h2>
+                <h2 class="h5 text-info mb-3">AI Engineer & Data Scientist</h2>
                 
                 <div class="social-links">
                     <a href="https://github.com/GomesAdhikari" title="GitHub"><i class="fab fa-github"></i></a>
@@ -342,11 +261,11 @@
                 </div>
             </div>
 
-            <div class="row mt-5">
-                <div class="col-md-6">
+            <div class="row mt-4">
+                <div class="col-md-6 mb-4">
                     <h3 class="section-title">About Me</h3>
                     <p class="lead">
-                        I am Gomes Singh Adhikari, a driven Data Analyst, Data Scientist and Machine Learning Engineer passionate about crafting data-driven solutions to tackle real-world challenges. With expertise in Python, Pandas, Matplotlib, Scikit-learn, TensorFlow, Keras, and Flask, I build predictive models, deploy machine learning systems, and create scalable applications. My experience with AWS ensures cloud deployment for high availability and scalability. Proficient in data analysis and visualization with Pandas and Seaborn, I deliver clear, impactful insights.
+                        I am Gomes Singh Adhikari, a driven Data Analyst, Data Scientist and Machine Learning Engineer passionate about crafting data-driven solutions to tackle real-world challenges. With expertise in Python, Pandas, Matplotlib, Scikit-learn, TensorFlow, Keras, and Flask, I build predictive models, deploy machine learning systems, and create scalable applications.
                     </p>
                     <p class="lead">
                         I bring strong communication and leadership skills, excelling in cross-functional teams and project management. With a problem-solving mindset and continuous learning approach, I aim to contribute to meaningful, innovative projects that create real impact.
@@ -354,7 +273,7 @@
                 </div>
                 <div class="col-md-6">
                     <h3 class="section-title">Core Skills</h3>
-                    <div>
+                    <div class="skills-container">
                         <span class="skill-badge">Machine Learning</span>
                         <span class="skill-badge">Deep Learning</span>
                         <span class="skill-badge">NLP</span>
@@ -370,9 +289,7 @@
                         <span class="skill-badge">Scikit-learn</span>
                         <span class="skill-badge">Python</span>
                         <span class="skill-badge">AWS</span>
-                        <span class="skill-badge">Data Analysis</span>
                         <span class="skill-badge">Web Scrapping</span>
-                        <span class="skill-badge">Data Visualization</span>
                         <span class="skill-badge">SQL</span>
                         <span class="skill-badge">Flask</span>
                         <span class="skill-badge">Gen-AI</span>
@@ -381,17 +298,17 @@
                 </div>
             </div>
 
-            <div class="row mt-5">
-                <div class="col-md-6">
+            <div class="row mt-4">
+                <div class="col-6">
                     <div class="stats-card">
-                        <i class="fas fa-project-diagram fa-2x mb-3 text-info"></i>
+                        <i class="fas fa-project-diagram fa-2x mb-2 text-info"></i>
                         <h4>15+</h4>
                         <p>Projects Completed</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-6">
                     <div class="stats-card">
-                        <i class="fas fa-award fa-2x mb-3 text-info"></i>
+                        <i class="fas fa-award fa-2x mb-2 text-info"></i>
                         <h4>5+</h4>
                         <p>Certifications</p>
                     </div>
@@ -399,25 +316,23 @@
             </div>
         </div>
 
-        <!-- Projects Section -->
         <div class="glass-container project-section">
-            <h3 class="section-title text-center mb-5">My Projects</h3>
+            <h3 class="section-title text-center mb-4">My Projects</h3>
             {% for job in jobs %}
             <div class="project-item">
                 <h4>{{ job['title'] }}</h4>
-                <div class="mb-3"><b>About Project:</b> {{ job['About'] }}</div>
-                <div><b>Link to Project:</b> <a href="{{ job['Link'] }}" class="project-link" target="_blank">{{ job['Link'] }}</a></div>
+                <div class="mb-2"><b>About Project:</b> {{ job['About'] }}</div>
+                <div><b>Link:</b> <a href="{{ job['Link'] }}" class="project-link" target="_blank">View Project</a></div>
             </div>
             {% endfor %}
         </div>
     </div>
 
     <script>
-        // Create animated neural network background
         function createNeuralNetwork() {
             const network = document.querySelector('.neural-network');
-            const nodeCount = 20;
-            const lineCount = 25;
+            const nodeCount = window.innerWidth < 768 ? 10 : 20;
+            const lineCount = window.innerWidth < 768 ? 15 : 25;
             
             for (let i = 0; i < nodeCount; i++) {
                 const node = document.createElement('div');
@@ -439,8 +354,13 @@
             }
         }
 
-        // Initialize neural network background
         createNeuralNetwork();
+        
+        window.addEventListener('resize', () => {
+            const network = document.querySelector('.neural-network');
+            network.innerHTML = '';
+            createNeuralNetwork();
+        });
     </script>
 </body>
 </html>
