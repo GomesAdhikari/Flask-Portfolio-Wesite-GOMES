@@ -5,7 +5,7 @@ app = Flask(__name__)
 PROJECTS = [
     {
         "title":'Heart Disease Risk Prediction With AI health Advice',
-        "About":'In this project, I developed a Heart Disease Risk Prediction system using advanced AI techniques. By analyzing key health indicators such as age, blood pressure, cholesterol, and more, the system predicts the likelihood of a patient developing heart disease. I utilized Regression models with the help of Scikit-learn, Pandas for data preprocessing, and GenAI to provide personalized health advice. The model not only offers a prediction but also provides actionable health recommendations tailored to the individuals risk factors, empowering users to take proactive steps toward improving their heart health.',
+        "About":'In this project, I developed a Heart Disease Risk Prediction system using advanced AI techniques. By analyzing key health indicators such as age, blood pressure, cholesterol, and more, the system predicts the likelihood of a patient developing heart disease. I utilized Regression models with the help of Scikit-learn, Pandas for data preprocessing, and API to provide personalized health advice.',
         "Link":'https://heart-disease-risk-prediction-with-ai.onrender.com/'
     },
     {
